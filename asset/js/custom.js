@@ -56,6 +56,30 @@ $(function(){
         }
       });
 
+    // 4. sc-works li클릭 이벤트 - 클릭시 자동 롤링,bar 멈추고 클릭한 요소의 bar 롤링진행
+    $('.sc-works .info-box').click(function(e){
+        e.preventDefault();
+        idx = $(this).parents('.works-item').index();// works-item index값 선언
+        $('.sc-works .thumb-box').removeClass('active')
+        $(this).siblings('.thumb-box').addClass('active')// active 시 scale 작동
+
+        clearInterval(works_Rolling);
+        guageBar.kill();
+        gsap.set('.guage',{width:"0%"})
+        num = idx
+        bar = $('.works-item').eq(num).find('.guage')// 게이지바 선언
+        guageBar = gsap.to(bar,5,{
+            width:"100%",
+            ease:"none",
+            onComplete:function(){
+                gsap.set('.guage',{width:"0%"})
+            } // 애니메이션 실행 후 진행되는 메서드
+        })// 게이지바 애니메이션 설정
+        $('.works-item').eq(num).addClass('active').siblings().removeClass('active')
+        num++;
+        worksRolling();
+    })
+
     // 3. sc-works 자동 롤링 함수, 자동 롤링 셋팅
     let num = 0;
     worksRollingInit = function(){
@@ -83,34 +107,11 @@ $(function(){
                 } // 애니메이션 실행 후 진행되는 메서드
             })// 게이지바 애니메이션 설정
             
-            num === 3 ? num = 0 : num++// 조건문 num이 3이되면 0대입, 아니면 증감
+            num === 2 ? num = 0 : num++// 조건문 num이 3이되면 0대입, 아니면 증감
         },5000)
     }
     worksRolling(); // 이때 자동롤링은 5초뒤에 실행되므로 초기 세팅 함수 선언
 
-    // 4. sc-works li클릭 이벤트 - 클릭시 자동 롤링,bar 멈추고 클릭한 요소의 bar 롤링진행
-    $('.sc-works .info-box').click(function(e){
-        e.preventDefault();
-        idx = $(this).parents('.works-item').index();// works-item index값 선언
-        $('.sc-works .thumb-box').removeClass('active')
-        $(this).siblings('.thumb-box').addClass('active')// active 시 scale 작동
-
-        clearInterval(works_Rolling);
-        guageBar.kill();
-        gsap.set('.guage',{width:"0%"})
-        num = idx
-        bar = $('.works-item').eq(num).find('.guage')// 게이지바 선언
-        guageBar = gsap.to(bar,5,{
-            width:"100%",
-            ease:"none",
-            onComplete:function(){
-                gsap.set('.guage',{width:"0%"})
-            } // 애니메이션 실행 후 진행되는 메서드
-        })// 게이지바 애니메이션 설정
-        $('.works-item').eq(num).addClass('active').siblings().removeClass('active')
-        num++;
-        worksRolling();
-    })
     // 5. homeapp 텍스트 애니메이션 - each문 활용
     $('.thumb-item').each(function(i,el){
         idx1 = $(this).index(); // index
