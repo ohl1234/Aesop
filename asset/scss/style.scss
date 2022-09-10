@@ -1,0 +1,14 @@
+@import './abstracts/var';
+@import './abstracts/mixins';
+// abstracts
+@import './base/typo';
+@import './base/reset';
+@import './base/preset';
+//base
+@import './layout/header';
+@import './layout/footer';
+//layout
+@import './components/button';
+@import './components/title';
+//components
+@import './page/main';

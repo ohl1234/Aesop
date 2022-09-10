@@ -1,0 +1,39 @@
+.blind{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+    margin: -1px;
+}
+.load{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: $color-brown;
+    &-wrap{
+        @include position-Center;
+        overflow: hidden;
+    }
+    svg {
+        fill: $color-white;
+    }
+}
+
+.wrapper{
+    position: relative;
+}
+.mobile{
+    display: none;
+}
+@include mobile{
+    .mobile{
+        display: block;
+    }
+    .pc{
+        display: none;
+    }
+}
