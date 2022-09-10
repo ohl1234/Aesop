@@ -332,6 +332,10 @@
                 transition: none;
             }
         }
+        .price {
+            display: block;
+            margin-left: 0;
+        }
         .column-left{
             grid-column: auto/span 6;
             &:hover{

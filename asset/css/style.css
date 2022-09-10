@@ -811,7 +811,7 @@ input, select, button, fieldset {
     font-size: max(1.2666666667vw, 19px);
   }
   .footer .corp-item:last-child {
-    margin-right: 0;
+    margin-right: 1.25rem;
   }
   .footer .link-corp {
     position: relative;
@@ -1275,6 +1275,10 @@ input, select, button, fieldset {
   .sc-product .group-flex5 img {
     transform: none;
     transition: none;
+  }
+  .sc-product .price {
+    display: block;
+    margin-left: 0;
   }
   .sc-product .column-left {
     grid-column: auto/span 6;
