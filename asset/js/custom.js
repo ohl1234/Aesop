@@ -1,8 +1,8 @@
 /**
  * 1. gsap load화면, 제목,버튼,svg // gsap 스크롤트리거 img,text영역 
  * 2. 모든 이미지 페럴렉스 통합판 - each문 활용
- * 3. sc-works 자동 롤링 함수, 자동 롤링 셋팅
- * 4. sc-works li클릭 이벤트 - 클릭시 자동 롤링,bar 멈추고 클릭한 요소의 bar 롤링진행
+ * 3. sc-gift 자동 롤링 함수, 자동 롤링 셋팅
+ * 4. sc-gift li클릭 이벤트 - 클릭시 자동 롤링,bar 멈추고 클릭한 요소의 bar 롤링진행
  * 5. homeapp 텍스트 애니메이션 - each문 활용
  * 6. hover 이벤트
  * 7. swiper slide
@@ -56,18 +56,18 @@ $(function(){
         }
       });
 
-    // 4. sc-works li클릭 이벤트 - 클릭시 자동 롤링,bar 멈추고 클릭한 요소의 bar 롤링진행
-    $('.sc-works .info-box').click(function(e){
+    // 3. sc-gift li클릭 이벤트 - 클릭시 자동 롤링,bar 멈추고 클릭한 요소의 bar 롤링진행
+    $('.sc-gift .info-box').click(function(e){
         e.preventDefault();
-        idx = $(this).parents('.works-item').index();// works-item index값 선언
-        $('.sc-works .thumb-box').removeClass('active')
+        idx = $(this).parents('.gift-item').index();// gift-item index값 선언
+        $('.sc-gift .thumb-box').removeClass('active')
         $(this).siblings('.thumb-box').addClass('active')// active 시 scale 작동
 
-        clearInterval(works_Rolling);
+        clearInterval(gift_Rolling);
         guageBar.kill();
         gsap.set('.guage',{width:"0%"})
         num = idx
-        bar = $('.works-item').eq(num).find('.guage')// 게이지바 선언
+        bar = $('.gift-item').eq(num).find('.guage')// 게이지바 선언
         guageBar = gsap.to(bar,5,{
             width:"100%",
             ease:"none",
@@ -75,15 +75,15 @@ $(function(){
                 gsap.set('.guage',{width:"0%"})
             } // 애니메이션 실행 후 진행되는 메서드
         })// 게이지바 애니메이션 설정
-        $('.works-item').eq(num).addClass('active').siblings().removeClass('active')
+        $('.gift-item').eq(num).addClass('active').siblings().removeClass('active')
         num++;
-        worksRolling();
+        giftRolling();
     })
 
-    // 3. sc-works 자동 롤링 함수, 자동 롤링 셋팅
+    // 4. sc-gift 자동 롤링 함수, 자동 롤링 셋팅
     let num = 0;
-    worksRollingInit = function(){
-        $('.works-item').eq(num).addClass('active') // 첫번째에 active 추가
+    giftRollingInit = function(){
+        $('.gift-item').eq(num).addClass('active') // 첫번째에 active 추가
         gsap.to('.first-bar',5,{
             width:"100%",
             ease:"none",
@@ -93,12 +93,12 @@ $(function(){
         })
         num = 1; // 다음 li의 index
     } 
-    worksRollingInit();
+    giftRollingInit();
 
-    worksRolling = function(){
-        works_Rolling = setInterval(function(){ //자동롤링 함수 선언
-            bar = $('.works-item').eq(num).find('.guage')// 게이지바 선언
-            $('.works-item').eq(num).addClass('active').siblings().removeClass('active')// addclass
+    giftRolling = function(){
+        gift_Rolling = setInterval(function(){ //자동롤링 함수 선언
+            bar = $('.gift-item').eq(num).find('.guage')// 게이지바 선언
+            $('.gift-item').eq(num).addClass('active').siblings().removeClass('active')// addclass
             guageBar = gsap.to(bar,5,{
                 width:"100%",
                 ease:"none",
@@ -110,9 +110,9 @@ $(function(){
             num === 2 ? num = 0 : num++// 조건문 num이 3이되면 0대입, 아니면 증감
         },5000)
     }
-    worksRolling(); // 이때 자동롤링은 5초뒤에 실행되므로 초기 세팅 함수 선언
+    giftRolling(); // 이때 자동롤링은 5초뒤에 실행되므로 초기 세팅 함수 선언
 
-    // 5. homeapp 텍스트 애니메이션 - each문 활용
+    // 5. sc-selection 텍스트 애니메이션 - each문 활용
     $('.thumb-item').each(function(i,el){
         idx1 = $(this).index(); // index
         idx2 = $(this).index()+1; // index+1
@@ -122,19 +122,25 @@ $(function(){
                 trigger:el,
                 start:"top 20%",
                 end:"bottom top",
-                //markers:true,
+                markers:true,
                 toggleActions:"play pause resume reverse"
             }
         })
         .to('.text-item:nth-child('+idx1+')',{opacity:0,y:-100})
         .to('.text-item:nth-child('+idx2+')',{opacity:1})
     })
-    // hover 
-    $('.sc-product .column-left').hover(function(){
-        gsap.to('.thumb-wrap .thumb-box',{scale:1.05})
-    },function(){
-        gsap.to('.thumb-wrap .thumb-box',{scale:1})
-    })
+
+    // 6. sc-product hover 
+    $(window).resize(function(){ 
+        if (window.innerWidth >= 768) {  
+            $('.sc-product .column-left').hover(function(){
+                gsap.to('.thumb-wrap .thumb-box',{scale:1.05})
+            },function(){
+                gsap.to('.thumb-wrap .thumb-box',{scale:1})
+            });
+            }
+        }).resize();
+        
     // 7. swiper slide
     const swiper = new Swiper(".slide", {
         // speed:1000,
@@ -149,6 +155,7 @@ $(function(){
         window.location.href = currLang;
         $('#lang option:eq(0)').prop("selected",true);
     })
+
     // 9. btn-menu 클릭시 gnb-area등장
     $('.btn-menu').click(function(){
         if ($(this).hasClass('active')) {
