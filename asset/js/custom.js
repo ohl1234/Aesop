@@ -6,8 +6,7 @@
  * 5. homeapp 텍스트 애니메이션 - each문 활용
  * 6. hover 이벤트
  * 7. swiper slide
- * 8. 국가변경 셀렉트
- * 9. btn-menu 클릭시 gnb-area등장
+ * 8. btn-menu 클릭시 gnb-area등장
  */
 
 $(function(){
@@ -148,15 +147,8 @@ $(function(){
         spaceBetween: 30,
       });
 
-    // 8. 국가변경 셀렉트
-    $('#lang').on('change',function(){
-        const currLang = $(this).val();
 
-        window.location.href = currLang;
-        $('#lang option:eq(0)').prop("selected",true);
-    })
-
-    // 9. btn-menu 클릭시 gnb-area등장
+    // 8. btn-menu 클릭시 gnb-area등장
     $('.btn-menu').click(function(){
         if ($(this).hasClass('active')) {
             $(this).removeClass('active')
