@@ -120,8 +120,8 @@ $(function(){
         const textAni = gsap.timeline({
             scrollTrigger:{
                 trigger:el,
-                start:"top 20%",
-                end:"bottom top",
+                start:"top 10%",
+                end:"120% top",
                 markers:true,
                 toggleActions:"play pause resume reverse"
             }
@@ -167,5 +167,6 @@ $(function(){
             $('.gnb-area').addClass('active')
             $('.link-order').animate({opacity:0})
         }
-    })
+    });
+
 })

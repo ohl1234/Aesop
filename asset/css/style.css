@@ -1514,6 +1514,9 @@ input, select, button, fieldset {
 .sc-selection .column-left.start-2 {
   grid-column-start: 2;
 }
+.sc-selection .thumb-box {
+  display: block;
+}
 .sc-selection .text-item {
   position: absolute;
   bottom: 20px;
