@@ -119,8 +119,8 @@ $(function(){
         const textAni = gsap.timeline({
             scrollTrigger:{
                 trigger:el,
-                start:"top 10%",
-                end:"120% top",
+                start:"top 20%",
+                end:"bottom top",
                 markers:true,
                 toggleActions:"play pause resume reverse"
             }
