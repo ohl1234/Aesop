@@ -26,7 +26,6 @@ $(function(){
             trigger:".sc-home",
             start:"top top",
             end:"bottom top",
-            //markers:true,
             scrub:1
         }
     })
@@ -45,7 +44,6 @@ $(function(){
                         trigger:parent,
                         start:"top bottom", 
                         end:"bottom top",
-                        //markers:true,
                         scrub:1,
                         duration:3
                     },
@@ -121,7 +119,6 @@ $(function(){
                 trigger:el,
                 start:"top 20%",
                 end:"bottom top",
-                //markers:true,
                 toggleActions:"play pause resume reverse"
             }
         })
