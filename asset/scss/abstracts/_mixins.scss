@@ -42,10 +42,10 @@
 $laptop:1265px;
 $laptop2:1024px;
 $tablet:768px;
-$moblie:767px;
+$mobile:767px;
 
 @mixin mobile {
-    @media (max-width:$moblie){
+    @media (max-width:$mobile){
         @content;
     }
 }
