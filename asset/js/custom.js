@@ -47,7 +47,7 @@ $(function(){
                         scrub:1,
                         duration:3
                     },
-                    yPercent:5
+                    yPercent:10
                 })
             })
         }
@@ -117,7 +117,7 @@ $(function(){
         const textAni = gsap.timeline({
             scrollTrigger:{
                 trigger:el,
-                start:"top 50%",
+                start:"top 60%",
                 end:"bottom 50%",
                 toggleActions:"play pause resume reverse"
             }
