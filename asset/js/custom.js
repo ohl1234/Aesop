@@ -117,12 +117,12 @@ $(function(){
         const textAni = gsap.timeline({
             scrollTrigger:{
                 trigger:el,
-                start:"top 20%",
-                end:"bottom top",
+                start:"top 50%",
+                end:"bottom 50%",
                 toggleActions:"play pause resume reverse"
             }
         })
-        .to('.text-item:nth-child('+idx1+')',{opacity:0,y:-100})
+        .to('.text-item:nth-child('+idx1+')',{opacity:0})
         .to('.text-item:nth-child('+idx2+')',{opacity:1})
     })
 
