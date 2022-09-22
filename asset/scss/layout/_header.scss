@@ -128,7 +128,6 @@
             z-index: -1;
             width: 100%;
             height: 100vh;
-        //pointer-events: none;
             background-color: $color-brown;
             display: flex;
             flex-direction: column;
@@ -164,13 +163,11 @@
             }
             &:hover{
                 &::before{
-                    opacity: 1;
-                    pointer-events: none;
+                    opacity: 0;
                     transform: none;
                 }
                 .link-default{
                     opacity: 1;
-                    pointer-events: none;
                     transform:none;
                 }
             }

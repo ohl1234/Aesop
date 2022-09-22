@@ -392,13 +392,11 @@ input, select, button, fieldset {
     transition: none;
   }
   .header .link-gnb:hover::before {
-    opacity: 1;
-    pointer-events: none;
+    opacity: 0;
     transform: none;
   }
   .header .link-gnb:hover .link-default {
     opacity: 1;
-    pointer-events: none;
     transform: none;
   }
   .header .link-default {
