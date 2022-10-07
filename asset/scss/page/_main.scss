@@ -2,6 +2,8 @@
     font-size: max(1.4vw, 20px);
     line-height: 1.4285714286;
 }
+
+// sc-home start
 .sc-home{
     width: 100%;
     max-width: 100%;
@@ -98,6 +100,9 @@
         }
     }
 }
+// sc-home end
+
+// sc-chuseok start
 .sc-chuseok{
     width: 100%;
     max-width: 100%;
@@ -213,6 +218,9 @@
         }
     }
 }
+// sc-chuseok end
+
+// sc-product start
 .sc-product{
     width: 100%;
     max-width: 100%;
@@ -363,7 +371,10 @@
         }
     }
 }
+// sc-product end
 
+
+// sc-gift start
 .sc-gift{
     width: 100%;
     max-width: 100%;
@@ -535,6 +546,9 @@
     }
 
 }
+// sc-gift end
+
+// sc-selection start
 .sc-selection{
     padding: 0 1.125rem;
     .group-wrapper{
@@ -654,6 +668,9 @@
         }
     }
 }
+// sc-selection end
+
+// sc-about start
 .sc-about{
     width: 100%;
     max-width: 100%;
@@ -751,3 +768,4 @@
         }
     }
 }
+// sc-about end
